@@ -6,7 +6,8 @@ export const COLOR = Object.freeze({
   BROWN: "#924A4A",
   GREY: "#F6F6F6",
   LIGHT_BLACK: "#707070",
-  RED: "#D80023"
+  RED: "#D80023",
+  GREEN: "#007D78"
 })
 
 export const MEDIA = Object.freeze({
