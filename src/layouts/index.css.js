@@ -20,6 +20,7 @@ const PosedSection = posed.section({
 
 export const PagePosedWrapper = styled(PosedSection)`
   padding: 19px 15px 64px;
+  box-sizing: border-box;
 
   ${media.desktop`
     padding: 34px 15px 64px;

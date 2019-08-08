@@ -2,7 +2,7 @@ import React from "react"
 
 const defaultContextValue = {
   items: [],
-  selectedItemIds: [],
+  selectedItems: [],
   buyerInfo: {
     creditCard: {
       id: "",
@@ -13,7 +13,9 @@ const defaultContextValue = {
     name: "",
     phone: "",
     address: "",
-  }
+  },
+  addItem: () => {},
+  updateItem: () => {}
 }
 
 const Context = React.createContext(defaultContextValue)
@@ -29,7 +31,7 @@ class ShoppingProvider extends React.PureComponent {
 
     this.state = {
       items: mergedItems,
-      selectedItemIds: [],
+      selectedItems: [],
       buyerInfo: {
         creditCard: {
           id: "",
@@ -40,7 +42,41 @@ class ShoppingProvider extends React.PureComponent {
         name: "",
         phone: "",
         address: "",
-      }
+      },
+      addItem: this.addItem,
+      updateItem: this.updateItem
+    }
+  }
+
+  addItem = (itemId) => {
+    const i = this.state.selectedItems.findIndex(i => i.id === itemId)
+    if (i > -1) {
+      return
+    }
+
+    this.setState(state => ({
+      selectedItems: state.selectedItems.concat({ id: itemId, count: 1 })
+    }))
+  }
+
+  updateItem = (updatedItem) => {
+    const i = this.state.selectedItems.findIndex(i => i.id === updatedItem.id)
+
+    if (updatedItem.count <= 0) {
+      this.setState(state => ({
+        selectedItems: [
+          ...state.updatedItem.slice(0, i),
+          ...state.updatedItem.slice(i + 1)
+        ]
+      }))
+    } else {
+      this.setState(state => ({
+        selectedItems: [
+          ...state.updatedItem.slice(0, i),
+          updatedItem,
+          ...state.updatedItem.slice(i + 1)
+        ]
+      }))
     }
   }
 

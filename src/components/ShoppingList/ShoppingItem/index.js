@@ -1,11 +1,17 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { navigate } from "@reach/router"
 
 import { Wrapper, Image, InfoWrapper, Name, Desc, Price } from "./index.css"
 
-const ShoppingItem = ({ className, isSelected, name, desc, price, imageData }) => {
+const ShoppingItem = ({ className, isSelected, name, desc, price, imageData, onClick }) => {
+  const handleOnClick = () => {
+    navigate("/order")
+    onClick()
+  }
+
   return (
-    <Wrapper className={className} isSelected={isSelected}>
+    <Wrapper className={className} isSelected={isSelected} onClick={handleOnClick}>
       <Image fixed={imageData} />
       <InfoWrapper>
         <Name>{name}</Name>
@@ -22,7 +28,8 @@ ShoppingItem.propTypes = {
   name: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
-  imageData: PropTypes.object.isRequired
+  imageData: PropTypes.object.isRequired,
+  onClick: PropTypes.func
 }
 
 ShoppingItem.defaultProps = {
