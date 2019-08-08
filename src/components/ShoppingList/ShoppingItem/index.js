@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { navigate } from "@reach/router"
+import { navigate } from "gatsby"
 
 import { Wrapper, Image, InfoWrapper, Name, Desc, Price } from "./index.css"
 
