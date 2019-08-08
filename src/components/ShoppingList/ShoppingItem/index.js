@@ -3,9 +3,9 @@ import PropTypes from "prop-types"
 
 import { Wrapper, Image, InfoWrapper, Name, Desc, Price } from "./index.css"
 
-const ShoppingItem = ({ className, name, desc, price, imageData }) => {
+const ShoppingItem = ({ className, isSelected, name, desc, price, imageData }) => {
   return (
-    <Wrapper className={className}>
+    <Wrapper className={className} isSelected={isSelected}>
       <Image fixed={imageData} />
       <InfoWrapper>
         <Name>{name}</Name>
@@ -18,10 +18,15 @@ const ShoppingItem = ({ className, name, desc, price, imageData }) => {
 
 ShoppingItem.propTypes = {
   className: PropTypes.string,
+  isSelected: PropTypes.bool,
   name: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   imageData: PropTypes.object.isRequired
+}
+
+ShoppingItem.defaultProps = {
+  isSelected: false
 }
 
 export default ShoppingItem

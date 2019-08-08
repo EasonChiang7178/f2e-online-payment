@@ -15,8 +15,13 @@ export const Wrapper = styled.div`
   cursor: pointer;
 
   &:hover {
-    box-shadow: inset 0 0 0 2px ${COLOR.PINK};
+    box-shadow: 0 3px 6px 0 rgba(187, 68, 68, .4), inset 0 0 0 2px ${COLOR.PINK};
   }
+
+  ${props => props.isSelected && {
+    boxShadow: `0 3px 6px 0 rgba(187, 68, 68, .4), inset 0 0 0 2px ${COLOR.PINK}`,
+    background: COLOR.MEDIUM_PINK,
+  }}
 
   ${media.desktop`
     width: 295px;

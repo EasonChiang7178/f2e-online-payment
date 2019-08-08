@@ -1,6 +1,7 @@
 export const COLOR = Object.freeze({
   PINK: "#D8586D",
   LIGHT_PINK: "#F0D0D5",
+  MEDIUM_PINK: "#FFD9D9",
   HIGHLIGHT_PINK: "#AF1700",
   BROWN: "#924A4A",
   GREY: "#F6F6F6",
