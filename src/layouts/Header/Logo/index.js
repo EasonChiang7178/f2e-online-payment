@@ -38,7 +38,7 @@ const LogoContainer = () => {
       }
       desktopImage: file(relativePath: { eq: "head-desktop.png" }) {
         childImageSharp {
-          fluid(quality: 100) {
+          fluid(maxWidth: 1366, quality: 100) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
