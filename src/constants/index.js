@@ -1,6 +1,8 @@
 export const COLOR = Object.freeze({
   PINK: "#D8586D",
-  LIGHT_PINK: "#F0D0D5"
+  LIGHT_PINK: "#F0D0D5",
+  BROWN: "#924A4A",
+  GREY: "#F6F6F6"
 })
 
 export const MEDIA = Object.freeze({

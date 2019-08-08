@@ -1,6 +1,8 @@
 import styled from "styled-components"
 import posed from "react-pose"
 
+import { media } from "../utils/styledUtils"
+
 const PosedSection = posed.section({
   enter: {
     opacity: 1,
@@ -18,4 +20,8 @@ const PosedSection = posed.section({
 
 export const PagePosedWrapper = styled(PosedSection)`
   padding: 19px 15px 64px;
+
+  ${media.desktop`
+    padding: 34px 15px 64px;
+  `}
 `
