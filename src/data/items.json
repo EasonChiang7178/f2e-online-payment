@@ -2,55 +2,55 @@
   {
     "id": "peanuts",
     "name": "甘蔗花生",
-    "description": "1 包",
+    "description": "1包",
     "price": "100"
   },
   {
     "id": "red-date",
     "name": "紅棗",
-    "description": "1 斤",
+    "description": "1斤",
     "price": "250"
   },
   {
     "id": "daisy",
     "name": "杭菊(黃/白)",
-    "description": "1 包",
+    "description": "1包",
     "price": "100"
   },
   {
     "id": "peanuts-2",
     "name": "黑金剛花生",
-    "description": "1 包",
+    "description": "1包",
     "price": "100"
   },
   {
     "id": "lycium",
     "name": "枸杞子",
-    "description": "1 包",
+    "description": "1包",
     "price": "200"
   },
   {
     "id": "soap",
     "name": "手工肥皂",
-    "description": "1 條",
+    "description": "1條",
     "price": "100"
   },
   {
     "id": "banana",
     "name": "芭蕉",
-    "description": "1 斤",
+    "description": "1斤",
     "price": "100"
   },
   {
     "id": "cucumber",
     "name": "小黃瓜",
-    "description": "1 斤",
+    "description": "1斤",
     "price": "100"
   },
   {
     "id": "preserved-fruits",
     "name": "樹莓蜜餞",
-    "description": "1 盒",
+    "description": "1盒",
     "price": "200"
   }
 ]
