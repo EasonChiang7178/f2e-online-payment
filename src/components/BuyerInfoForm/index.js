@@ -70,13 +70,15 @@ const BuyerInfoForm = ({ setInputValid }) => {
         setInputValid(isValid)
         if (isValid && previousValidState) {
           const { id0, id1, id2, id3, ...otherCreditCard } = values.creditCard
-          setBuyerInfo({
-            ...values,
-            creditCard: {
-              id: `${id0}${id1}${id2}${id3}`,
-              ...otherCreditCard
-            }
-          })
+          setTimeout(() => {
+            setBuyerInfo({
+              ...values,
+              creditCard: {
+                id: `${id0}${id1}${id2}${id3}`,
+                ...otherCreditCard
+              }
+            })
+          }, 0)
         }
         previousValidState = isValid
 
