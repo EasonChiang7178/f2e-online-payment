@@ -7,6 +7,7 @@ import shoppingContext from "../../contexts/ShoppingContext"
 import CreditCardInput from "./CreditCardInput"
 import ExpireDateSelector from "./ExpireDateSelector"
 import RowInput from "./RowInput"
+import { Container, CreditCardWrapper, BuyerInfoWrapper } from "./index.css"
 
 const buyerInfoSchema = Yup.object().shape({
   creditCard: Yup.object().shape({
@@ -81,33 +82,70 @@ const BuyerInfoForm = ({ setInputValid }) => {
 
         return (
           <Form>
-            <CreditCardInput
-              label="信用卡號"
-              values={values.creditCard}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              errors={errors.creditCard}
-              touched={touched.creditCard}
-            />
-            <ExpireDateSelector
-              label="有效月年"
-              expiredMonth={values.creditCard.expiredMonth}
-              expiredYear={values.creditCard.expiredYear}
-              errors={errors}
-              touched={touched}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            <RowInput
-              label="末三碼"
-              name="creditCard.securityCode"
-              value={values.creditCard.securityCode}
-              error={errors && errors.creditCard && errors.creditCard.securityCode}
-              touched={touched && touched.creditCard && touched.creditCard.securityCode}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              inputWidth={94}
-            />
+            <Container>
+              <CreditCardWrapper>
+                <CreditCardInput
+                  label="信用卡號"
+                  values={values.creditCard}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  errors={errors.creditCard}
+                  touched={touched.creditCard}
+                />
+                <ExpireDateSelector
+                  label="有效月年"
+                  expiredMonth={values.creditCard.expiredMonth}
+                  expiredYear={values.creditCard.expiredYear}
+                  errors={errors}
+                  touched={touched}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <RowInput
+                  label="末三碼"
+                  name="creditCard.securityCode"
+                  value={values.creditCard.securityCode}
+                  error={errors && errors.creditCard && errors.creditCard.securityCode}
+                  touched={touched && touched.creditCard && touched.creditCard.securityCode}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  inputWidth={94}
+                />
+              </CreditCardWrapper>
+
+              <BuyerInfoWrapper>
+                <RowInput
+                  label="收件人"
+                  name="name"
+                  placeholder="輸入真實姓名"
+                  value={values.name}
+                  error={errors && errors.name}
+                  touched={touched && touched.name}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <RowInput
+                  label="連絡電話"
+                  name="phone"
+                  placeholder="輸入手機號碼"
+                  value={values.phone}
+                  error={errors && errors.phone}
+                  touched={touched && touched.phone}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <RowInput
+                  label="收件地址"
+                  name="address"
+                  placeholder="僅限台灣地區"
+                  value={values.address}
+                  error={errors && errors.address}
+                  touched={touched && touched.address}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </BuyerInfoWrapper>
+            </Container>
           </Form>
         )
       }}
