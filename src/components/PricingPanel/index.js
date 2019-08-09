@@ -19,7 +19,7 @@ const PricingPanel = ({ items, updateItem }) => {
           count={item.count}
           imageData={item.imageData}
           price={item.price}
-          onChange={updateItem}
+          onChange={(updatedCount) => updateItem({ id: item.id, count: updatedCount })}
         />
       ))}
 

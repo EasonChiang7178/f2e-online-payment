@@ -6,7 +6,10 @@ import { Container } from "./index.css"
 import ShoppingItem from "./ShoppingItem"
 
 const ShoppingList = () => {
-  const { selectedItems, items, addItem } = useContext(shoppingContext)
+  const { selectedItems, items, addItem, updateItems } = useContext(shoppingContext)
+  if (selectedItems.some(item => item.count <= 0)) {
+    updateItems(selectedItems.filter(item => item.count > 0))
+  }
 
   return (
     <Container>

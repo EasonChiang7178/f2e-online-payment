@@ -15,7 +15,8 @@ const defaultContextValue = {
     address: "",
   },
   addItem: () => {},
-  updateItem: () => {}
+  updateItem: () => {},
+  updateItems: () => {}
 }
 
 const Context = React.createContext(defaultContextValue)
@@ -44,7 +45,8 @@ class ShoppingProvider extends React.PureComponent {
         address: "",
       },
       addItem: this.addItem,
-      updateItem: this.updateItem
+      updateItem: this.updateItem,
+      updateItems: this.updateItems
     }
   }
 
@@ -62,22 +64,17 @@ class ShoppingProvider extends React.PureComponent {
   updateItem = (updatedItem) => {
     const i = this.state.selectedItems.findIndex(i => i.id === updatedItem.id)
 
-    if (updatedItem.count <= 0) {
-      this.setState(state => ({
-        selectedItems: [
-          ...state.updatedItem.slice(0, i),
-          ...state.updatedItem.slice(i + 1)
-        ]
-      }))
-    } else {
-      this.setState(state => ({
-        selectedItems: [
-          ...state.updatedItem.slice(0, i),
-          updatedItem,
-          ...state.updatedItem.slice(i + 1)
-        ]
-      }))
-    }
+    this.setState(state => ({
+      selectedItems: [
+        ...state.selectedItems.slice(0, i),
+        updatedItem,
+        ...state.selectedItems.slice(i + 1)
+      ]
+    }))
+  }
+
+  updateItems = (updatedItems) => {
+    this.setState(() => ({ selectedItems: updatedItems }))
   }
 
   render = () => {
