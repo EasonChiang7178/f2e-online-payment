@@ -8,7 +8,9 @@ export const COLOR = Object.freeze({
   GREY: "#F6F6F6",
   LIGHT_BLACK: "#707070",
   RED: "#D80023",
-  GREEN: "#007D78"
+  GREEN: "#007D78",
+  LIGHT_BLUE: "#51B5CF",
+  BLUE: "#0099FF"
 })
 
 export const MEDIA = Object.freeze({

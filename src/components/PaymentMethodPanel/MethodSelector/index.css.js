@@ -3,6 +3,9 @@ import { COLOR } from "../../../constants"
 
 export const Container = styled.div`
   display: flex;
+  margin-bottom: 11px;
+  padding-left: 3px;
+  padding-right: 3px;
 `
 
 export const Selector = styled.div`

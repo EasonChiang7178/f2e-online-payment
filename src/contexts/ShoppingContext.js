@@ -16,7 +16,8 @@ const defaultContextValue = {
   },
   addItem: () => {},
   updateItem: () => {},
-  updateItems: () => {}
+  updateItems: () => {},
+  setBuyerInfo: () => {}
 }
 
 const Context = React.createContext(defaultContextValue)
@@ -46,7 +47,8 @@ class ShoppingProvider extends React.PureComponent {
       },
       addItem: this.addItem,
       updateItem: this.updateItem,
-      updateItems: this.updateItems
+      updateItems: this.updateItems,
+      setBuyerInfo: this.setBuyerInfo
     }
   }
 
@@ -75,6 +77,10 @@ class ShoppingProvider extends React.PureComponent {
 
   updateItems = (updatedItems) => {
     this.setState(() => ({ selectedItems: updatedItems }))
+  }
+
+  setBuyerInfo = (updatedBuyerInfo) => {
+    this.setState(() => ({ buyerInfo: updatedBuyerInfo }))
   }
 
   render = () => {

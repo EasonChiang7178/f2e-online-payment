@@ -5,7 +5,7 @@ import shoppingContext from "../contexts/ShoppingContext"
 import PaymentMethodPanel from "../components/PaymentMethodPanel"
 import PaymentPageControls from "../components/ControlButtons/PaymentPageControls"
 
-const OrderPage = () => {
+const PaymentPage = () => {
   const { selectedItems } = useContext(shoppingContext)
   if (selectedItems.length === 0) {
     navigate('/')
@@ -22,4 +22,4 @@ const OrderPage = () => {
   )
 }
 
-export default OrderPage
+export default PaymentPage
