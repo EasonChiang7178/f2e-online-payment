@@ -44,25 +44,32 @@ const buyerInfoSchema = Yup.object().shape({
 })
 
 const BuyerInfoForm = ({ setInputValid }) => {
-  const { setBuyerInfo } = useContext(shoppingContext)
+  const { setBuyerInfo, buyerInfo } = useContext(shoppingContext)
   let previousValidState = false
+
+  const { id, ...initCreditCard } = buyerInfo.creditCard
+  const idArray = id.split("")
+  const id0 = idArray.splice(0, 4).join("")
+  const id1 = idArray.splice(0, 4).join("")
+  const id2 = idArray.splice(0, 4).join("")
+  const id3 = idArray.splice(0, 4).join("")
 
   return (
     <Formik
       initialValues={{
+        ...buyerInfo,
         creditCard: {
-          id0: "",
-          id1: "",
-          id2: "",
-          id3: "",
-          expiredYear: "",
-          expiredMonth: "",
-          securityCode: ""
+          ...initCreditCard,
+          id0,
+          id1,
+          id2,
+          id3,
         },
-        name: "",
-        phone: "",
-        address: "",
       }}
+      isInitialValid={() => 
+        buyerInfo.name && buyerInfo.phone && buyerInfo.address &&
+        buyerInfo.creditCard.id && buyerInfo.creditCard.expiredMonth && buyerInfo.creditCard.expiredYear && buyerInfo.creditCard.securityCode
+      }
       validationSchema={buyerInfoSchema}
       onSubmit={() => {}}
     >
@@ -71,13 +78,17 @@ const BuyerInfoForm = ({ setInputValid }) => {
         if (isValid && previousValidState) {
           const { id0, id1, id2, id3, ...otherCreditCard } = values.creditCard
           setTimeout(() => {
-            setBuyerInfo({
-              ...values,
-              creditCard: {
-                id: `${id0}${id1}${id2}${id3}`,
-                ...otherCreditCard
-              }
-            })
+            buyerInfoSchema.validate(values)
+              .then(() => {
+                setBuyerInfo({
+                  ...values,
+                  creditCard: {
+                    id: `${id0}${id1}${id2}${id3}`,
+                    ...otherCreditCard
+                  }
+                })
+              })
+              .catch(() => {})
           }, 0)
         }
         previousValidState = isValid
