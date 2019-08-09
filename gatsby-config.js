@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/f2e-online-payment",
   siteMetadata: {
     title: `九華山 香香農特產`,
     description: `在地化的農特產結合支付流程的UI設計。 | Designed by Suhan`,
