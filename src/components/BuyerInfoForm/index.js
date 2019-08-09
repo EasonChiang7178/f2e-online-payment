@@ -3,9 +3,10 @@ import PropTypes from "prop-types"
 import { Formik, Form } from "formik"
 import * as Yup from "yup"
 
+import shoppingContext from "../../contexts/ShoppingContext"
 import CreditCardInput from "./CreditCardInput"
 import ExpireDateSelector from "./ExpireDateSelector"
-import shoppingContext from "../../contexts/ShoppingContext"
+import RowInput from "./RowInput"
 
 const buyerInfoSchema = Yup.object().shape({
   creditCard: Yup.object().shape({
@@ -96,6 +97,16 @@ const BuyerInfoForm = ({ setInputValid }) => {
               touched={touched}
               onChange={handleChange}
               onBlur={handleBlur}
+            />
+            <RowInput
+              label="末三碼"
+              name="creditCard.securityCode"
+              value={values.creditCard.securityCode}
+              error={errors && errors.creditCard && errors.creditCard.securityCode}
+              touched={touched && touched.creditCard && touched.creditCard.securityCode}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              inputWidth={94}
             />
           </Form>
         )

@@ -17,6 +17,7 @@ export const Input = styled.input`
   font-weight: 300;
   line-height: 31px;
   color: ${COLOR.LIGHT_BLACK};
+  box-sizing: border-box;
 
   &:focus {
     outline: none;
