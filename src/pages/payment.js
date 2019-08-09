@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { navigate } from "gatsby"
 
 import shoppingContext from "../contexts/ShoppingContext"
-// import PaymentMethodPanel from "../components/PaymentMethodPanel"
+import PaymentMethodPanel from "../components/PaymentMethodPanel"
 import PaymentPageControls from "../components/ControlButtons/PaymentPageControls"
 
 const OrderPage = () => {
@@ -13,12 +13,10 @@ const OrderPage = () => {
 
   return (
     <>
-      {/* <PaymentMethodPanel
-        items={itemsInfo}
-        updateItem={updateItem}
-      /> */}
+      <PaymentMethodPanel
+      />
       <PaymentPageControls
-        disableNextButton={false}
+        disableNextButton={true}
       />
     </>
   )
