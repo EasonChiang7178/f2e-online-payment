@@ -12,8 +12,9 @@ const Container = styled.div`
   margin-top: 16px;
 `
 
-const OrderResultPageControls = () => {
+const OrderResultPageControls = ({ onBackButtonClick }) => {
   const handleBackButtonClick = () => {
+    onBackButtonClick()
     navigate("/")
   }
 
@@ -28,6 +29,10 @@ const OrderResultPageControls = () => {
       </NextButton>
     </Container>
   )
+}
+
+OrderResultPageControls.propTypes = {
+  onBackButtonClick: PropTypes.func
 }
 
 export default OrderResultPageControls

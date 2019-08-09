@@ -9,7 +9,7 @@ import OrderResultPageControls from "../components/ControlButtons/OrderResultPag
 import { media } from "../utils/styledUtils"
 
 const OrderResultPage = () => {
-  const { selectedItems, items, buyerInfo } = useContext(shoppingContext)
+  const { selectedItems, updateItems, items, buyerInfo } = useContext(shoppingContext)
   if (selectedItems.length === 0) {
     navigate('/')
   }
@@ -25,7 +25,9 @@ const OrderResultPage = () => {
         items={itemsInfo}
         buyerInfo={buyerInfo}
       />
-      <OrderResultPageControls />
+      <OrderResultPageControls
+        onBackButtonClick={() => updateItems([])}
+      />
     </Container>
   )
 }
