@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import OrderItem from "./OrderItem"
-import { TotalPrice, ShoppingFee, FinalPrice, Separator } from "./index.css"
+import { Wrapper, TotalPrice, ShoppingFee, FinalPrice, Separator } from "./index.css"
 
 const OrderSummery = ({ items }) => {
   const totalPrice = items.reduce((total, item) => item.count * Number(item.price) + total, 0)
@@ -10,7 +10,7 @@ const OrderSummery = ({ items }) => {
   const finalPrice = totalPrice + shoppingFee
 
   return (
-    <div>
+    <Wrapper>
       {items.map(item => (
         <OrderItem key={item.id}
           name={item.name}
@@ -23,7 +23,7 @@ const OrderSummery = ({ items }) => {
       <ShoppingFee>運費<b>{shoppingFee}元</b></ShoppingFee>
       <Separator />
       <FinalPrice>總額<b>{finalPrice}元</b></FinalPrice>
-    </div>
+    </Wrapper>
   )
 }
 

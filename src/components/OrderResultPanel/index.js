@@ -4,6 +4,7 @@ import generate from "nanoid/generate"
 
 import { Panel, OrderId, Step, OrderContentWrapper } from "./index.css"
 import OrderSummery from "./OrderSummery"
+import OrderBuyer from "./OrderBuyer"
 
 const OrderResultPanel = ({ items, buyerInfo }) => {
   const orderId = generate("123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ", 11)
@@ -19,9 +20,9 @@ const OrderResultPanel = ({ items, buyerInfo }) => {
           items={items}
         />
 
-        {/* <OrderBuyer
+        <OrderBuyer
           buyerInfo={buyerInfo}
-        /> */}
+        />
       </OrderContentWrapper>
     </Panel>
   )

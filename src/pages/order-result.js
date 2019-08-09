@@ -35,6 +35,7 @@ const OrderResultPage = () => {
 const Container = styled.div`
   ${media.desktop`
     width: 1098px;
+    margin: 0 auto;
   `}
 `
 

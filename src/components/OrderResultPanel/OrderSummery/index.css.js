@@ -1,5 +1,10 @@
 import styled from "styled-components"
-import { COLOR } from "../../../constants";
+import { COLOR } from "../../../constants"
+
+export const Wrapper = styled.div`
+  width: 309px;
+  flex: 0 0 auto;
+`
 
 export const TotalPrice = styled.div`
   font-size: 21px;

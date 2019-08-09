@@ -23,11 +23,25 @@ export const OrderId = styled.h1`
   font-size: 23px;
   font-weight: 500;
   line-height: 31px;
+
+  ${media.desktop`
+    margin-bottom: 21px;
+    text-align: center;
+  `}
 `
 
 export const Step = styled(StepRaw)`
   width: 315px;
   margin-bottom: 12px;
+
+  ${media.desktop`
+    margin-bottom: 27px;
+  `}
 `
 
-export const OrderContentWrapper = styled.div``
+export const OrderContentWrapper = styled.div`
+  ${media.desktop`
+    display: flex;
+    justify-content: space-between;
+  `}
+`
