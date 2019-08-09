@@ -7,13 +7,13 @@ const PosedSection = posed.section({
   enter: {
     opacity: 1,
     transition: {
-      opacity: { duration: 300 }
+      opacity: { duration: 100 }
     }
   },
   exit: {
     opacity: 0,
     transition: {
-      opacity: { duration: 300 }
+      opacity: { duration: 100 }
     }
   }
 })
