@@ -9,7 +9,7 @@ export const useItemData = () => {
             name
             price
             id
-            description
+            unit
           }
         }
       }

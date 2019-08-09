@@ -17,7 +17,7 @@ const ShoppingList = () => {
         <ShoppingItem key={item.id}
           isSelected={selectedItems.findIndex(i => i && i.id === item.id) !== -1}
           name={item.name}
-          desc={item.description}
+          unit={item.unit}
           price={item.price}
           imageData={item.imageData}
           onClick={() => addItem(item.id)}

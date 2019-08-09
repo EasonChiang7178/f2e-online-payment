@@ -16,10 +16,11 @@ const PricingPanel = ({ items, updateItem }) => {
       {items.map(item => (
         <ItemCountSelector key={item.id}
           name={item.name}
+          unit={item.unit}
           count={item.count}
           imageData={item.imageData}
           price={item.price}
-          onChange={(updatedCount) => updateItem({ id: item.id, count: updatedCount })}
+          onChange={(updatedCount) => updateItem({ id: item.id, count: updatedCount || 0 })}
         />
       ))}
 

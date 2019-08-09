@@ -5,7 +5,7 @@ import 'rc-input-number/assets/index.css'
 
 import { Wrapper, Image, InfoWrapper, Name, PriceWrapper, CountInput, Price } from "./index.css"
 
-const ItemCountSelector = ({ name, count, price, imageData, onChange }) => {
+const ItemCountSelector = ({ name, unit, count, price, imageData, onChange }) => {
   return (
     <Wrapper>
       <Image fixed={imageData} />
@@ -19,7 +19,7 @@ const ItemCountSelector = ({ name, count, price, imageData, onChange }) => {
               value={count}
               onChange={onChange}
               useTouch
-            /> 包
+            /> {unit}
           </CountInput>
           <Price>{price}元</Price>
         </PriceWrapper>
@@ -30,6 +30,7 @@ const ItemCountSelector = ({ name, count, price, imageData, onChange }) => {
 
 ItemCountSelector.propTypes = {
   name: PropTypes.string.isRequired,
+  unit: PropTypes.string.isRequired,
   count: PropTypes.number.isRequired,
   price: PropTypes.string.isRequired,
   imageData: PropTypes.object.isRequired,
