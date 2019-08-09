@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useContext } from "react"
+import PropTypes from "prop-types"
 import { Formik, Form } from "formik"
 import * as Yup from "yup"
 
 import CreditCardInput from "./CreditCardInput"
 import ExpireDateSelector from "./ExpireDateSelector"
+import shoppingContext from "../../contexts/ShoppingContext"
 
 const buyerInfoSchema = Yup.object().shape({
   creditCard: Yup.object().shape({
@@ -39,7 +41,9 @@ const buyerInfoSchema = Yup.object().shape({
     .required("必填！")
 })
 
-const BuyerInfoForm = () => {
+const BuyerInfoForm = ({ setInputValid }) => {
+  const { setBuyerInfo } = useContext(shoppingContext)
+  let previousValidState = false
 
   return (
     <Formik
@@ -58,9 +62,22 @@ const BuyerInfoForm = () => {
         address: "",
       }}
       validationSchema={buyerInfoSchema}
-      onSubmit={() => console.warn("submit")}
+      onSubmit={() => {}}
     >
       {({ touched, values, isValid, errors, handleChange, handleBlur }) => {
+        setInputValid(isValid)
+        if (isValid && previousValidState) {
+          const { id0, id1, id2, id3, ...otherCreditCard } = values.creditCard
+          setBuyerInfo({
+            ...values,
+            creditCard: {
+              id: `${id0}${id1}${id2}${id3}`,
+              ...otherCreditCard
+            }
+          })
+        }
+        previousValidState = isValid
+
         return (
           <Form>
             <CreditCardInput
@@ -85,6 +102,10 @@ const BuyerInfoForm = () => {
       }}
     </Formik>
   )
+}
+
+BuyerInfoForm.propTypes = {
+  setInputValid: PropTypes.func
 }
 
 export default BuyerInfoForm

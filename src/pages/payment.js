@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { navigate } from "gatsby"
 
 import shoppingContext from "../contexts/ShoppingContext"
@@ -11,12 +11,15 @@ const PaymentPage = () => {
     navigate('/')
   }
 
+  const [isInputValid, setInputValid] = useState(false)
+
   return (
     <>
       <PaymentMethodPanel
+        setInputValid={setInputValid}
       />
       <PaymentPageControls
-        disableNextButton={true}
+        disableNextButton={!isInputValid}
       />
     </>
   )
