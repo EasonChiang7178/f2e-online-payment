@@ -29,16 +29,16 @@ const DesktopNextButton = styled(NextButton)`
   `}
 `
 
-const OrderPageControls = ({ disableNextButton }) => {
+const OrderPageControls = ({ disableMobileNextButton, disableDesktopNextButton }) => {
   const handleBackButtonClick = () => {
     navigate("/")
   }
   const handleMobileNextButtonClick = () => {
-    if (disableNextButton) return
+    if (disableMobileNextButton) return
     navigate("/payment")
   }
   const handleDesktopNextButtonClick = () => {
-    if (disableNextButton) return
+    if (disableDesktopNextButton) return
     navigate("/order-result")
   }
 
@@ -48,10 +48,10 @@ const OrderPageControls = ({ disableNextButton }) => {
         <FontAwesomeIcon icon={faPlus} /> 加購
       </BackButton>
 
-      <MobileNextButton onClick={handleMobileNextButtonClick} disabled={disableNextButton}>
+      <MobileNextButton onClick={handleMobileNextButtonClick} disabled={disableMobileNextButton}>
         下一步
       </MobileNextButton>
-      <DesktopNextButton onClick={handleDesktopNextButtonClick} disabled={disableNextButton}>
+      <DesktopNextButton onClick={handleDesktopNextButtonClick} disabled={disableDesktopNextButton}>
         結帳
       </DesktopNextButton>
     </Container>
@@ -59,10 +59,12 @@ const OrderPageControls = ({ disableNextButton }) => {
 }
 
 OrderPageControls.propTypes = {
-  disableNextButton: PropTypes.bool
+  disableMobileNextButton: PropTypes.bool,
+  disableDesktopNextButton: PropTypes.bool
 }
 OrderPageControls.defaultProps = {
-  disableNextButton: false
+  disableMobileNextButton: false,
+  disableDesktopNextButton: false
 }
 
 export default OrderPageControls

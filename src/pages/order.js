@@ -1,9 +1,13 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
+import styled from "styled-components"
 import { navigate } from "gatsby"
 
 import shoppingContext from "../contexts/ShoppingContext"
 import PricingPanel from "../components/PricingPanel"
+import PaymentMethodPanel from "../components/PaymentMethodPanel"
 import OrderPageControls from "../components/ControlButtons/OrderPageControls"
+
+import { media } from "../utils/styledUtils"
 
 const OrderPage = () => {
   const { selectedItems, items, updateItem } = useContext(shoppingContext)
@@ -18,17 +22,52 @@ const OrderPage = () => {
 
   const totalItemsCount = itemsInfo.reduce((sum, item) => sum + item.count, 0)
 
+  const [isInputValid, setInputValid] = useState(false);
+
   return (
-    <>
-      <PricingPanel
-        items={itemsInfo}
-        updateItem={updateItem}
-      />
+    <Container>
+      <PanelGroup>
+        <PricingPanel
+          items={itemsInfo}
+          updateItem={updateItem}
+        />
+
+        <FormWrapper>
+          <PaymentMethodPanel
+            setInputValid={setInputValid}
+          />
+        </FormWrapper>
+      </PanelGroup>
+
       <OrderPageControls
-        disableNextButton={totalItemsCount <= 0}
+        disableMobileNextButton={totalItemsCount <= 0}
+        disableDesktopNextButton={totalItemsCount <= 0 || !isInputValid}
       />
-    </>
+    </Container>
   )
 }
+
+
+const Container = styled.div`
+  ${media.desktop`
+    width: 1098px;
+    margin: 0 auto;
+  `}
+`
+
+const PanelGroup = styled.div`
+  ${media.desktop`
+    display: flex;
+    justify-content: space-between;
+  `}
+`
+
+const FormWrapper = styled.div`
+  display: none;
+
+  ${media.desktop`
+    display: block;
+  `}
+`
 
 export default OrderPage

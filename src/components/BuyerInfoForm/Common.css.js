@@ -42,6 +42,7 @@ export const Select = styled.select`
   font-weight: 300;
   line-height: 31px;
   color: ${COLOR.LIGHT_BLACK};
+  -webkit-appearance: none;
 
   &:focus {
     outline: none;
